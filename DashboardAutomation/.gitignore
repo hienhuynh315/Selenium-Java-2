@@ -1,0 +1,11 @@
+/target/
+/.settings/
+/test-output/
+.checkstyle
+.project
+/screenshots/
+.classpath
+/src/test/resources/uatOutput/*.csv
+/src/test/resources/portalOutput/*.csv
+/screencasts/
+TestRun.txt

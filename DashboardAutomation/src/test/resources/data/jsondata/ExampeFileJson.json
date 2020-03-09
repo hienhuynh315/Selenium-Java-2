@@ -1,0 +1,187 @@
+{
+	"firstName": "DP3Individual",
+	"lastName": "BAT",
+	"address1": "1602 Audubon Trce",
+	"city": "New Orleans",
+	"state": "Louisiana",
+	"zipCode": "70121",
+	"policyType": "Special Dwelling (DP3)",
+	"priorLiabilityLimit": "Greater than or equal to $300,000",
+	"newQuoteConstructionDetails": [
+		{
+			"field": "Usage",
+			"type": "SELECTABLE",
+			"value": "Secondary/Seasonal"
+		},
+		{
+			"field": "Occupancy",
+			"type": "SELECTABLE",
+			"value": "Non-owner"
+		},
+		{
+			"field": "Number of Families",
+			"type": "SELECTABLE",
+			"value": "One"
+		},
+		{
+			"field": "model.replacementCost",
+			"type": "EDITABLE",
+			"value": "250000"
+		},
+		{
+			"field": "Year Built",
+			"type": "EDITABLE",
+			"value": "2015"
+		},
+		{
+			"field": "Construction Type",
+			"type": "SELECTABLE",
+			"value": "Frame"
+		}
+	],
+	"newQuoteQuoteDetails": [
+		{
+			"field": "Coverage C - Personal Property",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		},
+		{
+			"field": "Replacement Cost Contents",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		},
+		{
+			"field": "Ordinance or Law",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		}
+	],
+	"quoteHomeDetails": [
+		{
+			"field": "Is residence managed by a professional management firm?",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		},
+		{
+			"field": "Months Unoccupied",
+			"type": "EDITABLE",
+			"value": "1"
+		},
+		{
+			"field": "Currently Insured ?",
+			"type": "SELECTABLE",
+			"value": "Yes"
+		}
+	],
+	"quoteRequestConstructionDetails": [
+		{
+			"field": "Approximate Square Footage",
+			"type": "EDITABLE",
+			"value": "2500"
+		},
+		{
+			"field": "Foundation Type",
+			"type": "SELECTABLE",
+			"value": "Slab"
+		}
+	],
+	"quoteRequestConstructionHeatingDetails": [
+		{
+			"field": "Primary Heating",
+			"type": "SELECTABLE",
+			"value": "Central HVAC"
+		}
+	],
+	"quoteRequestConstructionRoofDetails": [
+		{
+			"field": "Roof Type",
+			"type": "SELECTABLE",
+			"value": "Composition"
+		}
+	],
+	"quoteRequestConstructionElectricalDetails": [
+		{
+			"field": "Electrical Wiring",
+			"type": "SELECTABLE",
+			"value": "Copper"
+		},
+		{
+			"field": "Overload Protection",
+			"type": "SELECTABLE",
+			"value": "Circuit Breakers"
+		},
+		{
+			"field": "Is the electrical service for the property at least 100 amps?",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		}
+	],
+	"quoteRequestConstructionPlumbingDetails": [
+		{
+			"field": "Plumbing",
+			"type": "SELECTABLE",
+			"value": "Copper"
+		}
+	],
+	"underwritingQuestions": [
+		{
+			"field": "8)    Is the dwelling visible from a paved road and at least three neighboring dwellings?",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		}
+	],
+	"applicantDetails": [
+		{
+			"field": "Email",
+			"type": "EDITABLE",
+			"value": ""
+		},
+		{
+			"field": "Primary Phone",
+			"type": "SELECTABLE",
+			"value": "Mobile"
+		},
+		{
+			"field": "Mobile Phone",
+			"type": "EDITABLE",
+			"value": "803-748-2000"
+		},
+		{
+			"field": "Date of Birth",
+			"type": "EDITABLE",
+			"value": "10/1/1987"
+		},
+		{
+			"field": "SSN",
+			"type": "EDITABLE",
+			"value": "666-46-3372"
+		},
+		{
+			"field": "Have you lived at your current address for 18 months?",
+			"type": "RADIOBUTTON",
+			"value": "true"
+		}
+	],
+	"lossDetails": [
+		{
+			"date": "04/04/2019",
+			"status": "Closed",
+			"addLossNewAddress": false,
+			"amount": "10001",
+			"catastrophe": false,
+			"cause": "Wind"
+		}
+	],
+	"billingDetails": [
+		{
+			"field": "Set Up Automatic Payments for this policy?",
+			"type": "RADIOBUTTON",
+			"value": "false"
+		},
+		{
+			"field": "Payment Plans",
+			"type": "BUTTON",
+			"value": "6-Pay"
+		}
+	]
+}
