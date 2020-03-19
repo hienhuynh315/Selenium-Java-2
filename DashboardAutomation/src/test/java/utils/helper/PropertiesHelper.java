@@ -44,14 +44,14 @@ public class PropertiesHelper {
 			config = initPropsForName("conf.properties");
 
 			// Profile is passed by arguments via Jenkins
-			String profileFile = System.getProperty("profile");
+//			String profileFile = System.getProperty("profile");
 
-			if (profileFile != null) {
-				profile = initPropsForName(
-						"profiles/" + profileFile + ".properties");
-			} else {
-				profile = initPropsForName("profiles/qa.properties");
-			}
+//			if (profileFile != null) {
+//				profile = initPropsForName(
+//						"profiles/" + profileFile + ".properties");
+//			} else {
+//				profile = initPropsForName("profiles/qa.properties");
+//			}
 
 			String propsFile = System.getProperty("properties");
 			if (props != null) {

@@ -21,12 +21,9 @@ public class TestBase {
 	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod(String browser, Method method) throws Throwable {
-		DriverUtils.setTimeOut(Integer
-				.parseInt(PropertiesHelper.getPropValue("driver.timeout")));
-		DriverUtils.setShortTimeOut(Integer.parseInt(
-				PropertiesHelper.getPropValue("driver.shortTimeout")));
-		DriverProperty property = BrowserSettingHelper
-				.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
+		DriverUtils.setTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.timeout")));
+		DriverUtils.setShortTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.shortTimeout")));
+		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
 
 		setProperty(property);
 		setEnv(System.getProperty("profile"));
@@ -42,8 +39,7 @@ public class TestBase {
 		DriverUtils.getDriver(getProperty());
 		DriverUtils.setEnv(getEnv());
 		DriverUtils.maximizeBrowser();
-		DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH,
-				Constants.BROWSER_SIZE_HEIGHT);
+		DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH, Constants.BROWSER_SIZE_HEIGHT);
 	}
 
 	public DriverProperty getProperty() {

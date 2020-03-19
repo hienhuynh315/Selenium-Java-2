@@ -26,6 +26,8 @@ public interface IElement {
 	String getAttribute(String attributeName);
 
 	boolean isDisplayed();
+	
+	boolean isClickable();
 
 	boolean isExist();
 

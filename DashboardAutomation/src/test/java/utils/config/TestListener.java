@@ -32,8 +32,7 @@ public class TestListener implements ITestListener {
 	boolean testRailEnabled = false;
 	String testRailTestRunID = null;
 
-	public String getTestrailID(ITestResult result)
-			throws NoSuchMethodException, SecurityException {
+	public String getTestrailID(ITestResult result) throws NoSuchMethodException, SecurityException {
 		String testID = null;
 		IClass obj = result.getTestClass();
 		Class<?> newobj = obj.getRealClass();
@@ -56,8 +55,7 @@ public class TestListener implements ITestListener {
 			List<String> logs = Logger.getCurrentLogs();
 			testID = getTestrailID(result);
 			if (testID == null) {
-				System.out.println(
-						"There is no TestRail ID for the running test");
+				System.out.println("There is no TestRail ID for the running test");
 				return;
 			}
 			StringBuilder description = new StringBuilder();
@@ -65,25 +63,20 @@ public class TestListener implements ITestListener {
 				description.append(log).append("\n");
 			}
 
-			description = description.append("\n")
-					.append(result.getThrowable().getMessage()).append(")\n\n");
+			description = description.append("\n").append(result.getThrowable().getMessage()).append(")\n\n");
 
 			Map<String, Comparable> data = new HashMap<String, Comparable>();
 			data.put("status_id", new Integer(5));
 			data.put("comment", description.toString());
 
-			caseData = (JSONObject) client.sendPost(
-					"add_result_for_case/" + testRailTestRunID + "/" + testID,
-					data);
+			caseData = (JSONObject) client.sendPost("add_result_for_case/" + testRailTestRunID + "/" + testID, data);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		if (!path.isEmpty()) {
 			try {
-				client.sendPost(
-						"add_attachment_to_result_for_case/"
-								+ caseData.get("id").toString() + "/" + testID,
+				client.sendPost("add_attachment_to_result_for_case/" + caseData.get("id").toString() + "/" + testID,
 						path);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -92,8 +85,7 @@ public class TestListener implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
-		String path = DriverUtils
-				.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
+		String path = DriverUtils.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
 
 		if (!path.isEmpty()) {
 			String script = Common.screenshotURI(path);
@@ -101,41 +93,16 @@ public class TestListener implements ITestListener {
 			new File(path).delete();
 		}
 		/*
-		 * for (LogEntry entry : DriverUtils.captureBrowserLog()) { if
-		 * (entry.getLevel() == Level.SEVERE) { Logger.info("URL: " +
-		 * DriverUtils.getCurrentURL()); Logger.info("BROWSER LOG: " + entry); }
-		 * }
+		 * for (LogEntry entry : DriverUtils.captureBrowserLog()) { if (entry.getLevel()
+		 * == Level.SEVERE) { Logger.info("URL: " + DriverUtils.getCurrentURL());
+		 * Logger.info("BROWSER LOG: " + entry); } }
 		 */
 	}
 
 	public void onTestStart(ITestResult result) {
 		Reporter.log(envScript);
-		Logger.info(String.format("TEST CASE: %s.%s",
-				result.getTestClass().getName(), result.getName()));
-		Logger.info(String.format("TEST DESCRIPTION: %s",
-				result.getMethod().getDescription()));
-		String isIPX = result.getTestContext().getCurrentXmlTest()
-				.getParameter("isIPX");
-		String browser = result.getTestContext().getCurrentXmlTest()
-				.getParameter("browser");
-		if (isIPX != null && isIPX.equals("true")) {
-			DriverUtils.quitBrowser();
-			try {
-				DriverProperty property = BrowserSettingHelper
-						.getDriverProperty(Constants.BROWSER_SETTING_FILE,
-								browser);
-				DriverUtils.delay(3);
-				DriverUtils.getDriver(property);
-				DriverUtils.setEnv(env);
-				DriverUtils.maximizeBrowser();
-				DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH,
-						Constants.BROWSER_SIZE_HEIGHT);
-
-			} catch (Exception e) {
-				Logger.error("An error occurred when opening browser "
-						+ e.getMessage());
-			}
-		}
+		Logger.info(String.format("TEST CASE: %s.%s", result.getTestClass().getName(), result.getName()));
+		Logger.info(String.format("TEST DESCRIPTION: %s", result.getMethod().getDescription()));
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -145,15 +112,13 @@ public class TestListener implements ITestListener {
 			try {
 				String testID = getTestrailID(result);
 				if ((testID == null)) {
-					System.out.println(
-							"There is no TestRail ID for the running test");
+					System.out.println("There is no TestRail ID for the running test");
 					return;
 				}
 				Map<String, Comparable> data = new HashMap<String, Comparable>();
 				data.put("status_id", new Integer(1));
 				data.put("comment", "Marked as Passed by automation script");
-				client.sendPost("add_result_for_case/" + testRailTestRunID + "/"
-						+ testID, data);
+				client.sendPost("add_result_for_case/" + testRailTestRunID + "/" + testID, data);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -162,8 +127,7 @@ public class TestListener implements ITestListener {
 
 	public void onTestSkipped(ITestResult result) {
 		// TODO Auto-generated method stub
-		String path = DriverUtils
-				.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
+		String path = DriverUtils.captureScreenshot(UUID.randomUUID().toString(), "screenshots");
 
 		if (testRailEnabled) {
 			postTestRailResult(path, result);
@@ -187,19 +151,17 @@ public class TestListener implements ITestListener {
 		String profileFile = System.getProperty("profile");
 		if (profileFile != null) {
 			env = profileFile;
-		} 
-		else {
-			if (env == null)
+		} else {
+			if (env == null) {
 				env = "";
+			}
 			System.setProperty("profile", env);
 		}
 
 		if (env != null) {
 			System.out.println("Testing on " + env.toUpperCase());
-			envScript = "<script>\r\n" + "$(document).ready(function() {\r\n"
-					+ " orgText = $(\"h1\").text();\r\n"
-					+ "if(!orgText.includes('on')){"
-					+ " $(\"h1\").text(orgText + \" on " + env.toUpperCase()
+			envScript = "<script>\r\n" + "$(document).ready(function() {\r\n" + " orgText = $(\"h1\").text();\r\n"
+					+ "if(!orgText.includes('on')){" + " $(\"h1\").text(orgText + \" on " + env.toUpperCase()
 					+ "\");\r\n" + "};\r\n" + "})" + "</script>";
 		}
 

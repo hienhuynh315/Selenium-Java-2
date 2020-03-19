@@ -246,6 +246,30 @@ public class Element implements IElement {
 			return false;
 		}
 	}
+	
+	@Override
+	public  boolean isClickable() 
+    {
+//		try {
+//			logger.debug(String.format("is control clickable or not: %s",
+//					getLocator().toString()));
+//			ExpectedConditions.elementToBeClickable(getElement());
+//			return getElement().isEnabled();
+//		} catch (Exception e) {
+//			logger.error(
+//					String.format("IsCclickable: Has error with control '%s': %s",
+//							getLocator().toString(), e.getMessage()));
+			return false;
+//		}
+//        try{
+//            WebDriverWait wait = new WebDriverWait(driver, 6);
+//            wait.until(ExpectedConditions.elementToBeClickable(el));
+//            return true;
+//        }
+//        catch (Exception e){
+//            return false;
+//        }
+    }
 
 	@Override
 	public void waitForDisplay() {

@@ -8,12 +8,9 @@ import org.testng.Reporter;
 
 public class Logger {
 
-	private static String methodName;
-	private static String clasName;
 	private static List<String> currentLogs = new ArrayList<String>();
 
-	private static org.apache.log4j.Logger log = org.apache.log4j.Logger
-			.getLogger(Logger.class);
+	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(Logger.class);
 
 	public static void info(String message) {
 		saveLog(message);
@@ -30,8 +27,7 @@ public class Logger {
 
 	public static void verify(String message) {
 		saveLog(message);
-		Reporter.log(
-				"<b style=\"color: #44aa44;\">VERIFY POINT: </b>" + message);
+		Reporter.log("<b style=\"color: #44aa44;\">VERIFY POINT: </b>" + message);
 		log.info("VERIFY POINT: " + message);
 	}
 
@@ -48,8 +44,7 @@ public class Logger {
 	}
 
 	private static void saveLog(String message) {
-		String currentMethod = Thread.currentThread().getStackTrace()[3]
-				.getMethodName();
+		String currentMethod = Thread.currentThread().getStackTrace()[3].getMethodName();
 		if (currentMethod.equals("setUp")) {
 			currentLogs.clear();
 		} else if (message.contains("TEST CASE:")) {
