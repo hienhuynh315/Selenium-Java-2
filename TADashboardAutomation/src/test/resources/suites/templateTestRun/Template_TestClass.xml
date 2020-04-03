@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="1" parallel="false">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="utils.config.TestListener" />
+	</listeners>
+	<test name="Run Chrome">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="tests.dashboard.example.TC001_DA_LOGIN" />
+<!-- 			<class name="tests.dashboard.example.TC002_DA_LOGIN" /> -->
+			<!-- <class name="tests.dashboard.example.TC003_DA_LOGIN" /> -->
+			<!-- <class name="tests.dashboard.example.TC004_DA_LOGIN" /> -->
+			<!-- <class name="tests.dashboard.example.TC005_DA_LOGIN" /> -->
+<!-- 			<class name="tests.dashboard.example.TC010_DA_LOGIN" /> -->
+			<!-- <class name="tests.dashboard.example.TC011_DA_MP" /> -->
+			<!-- <class name="tests.dashboard.example.TC012_DA_MP" /> -->
+			<!-- <class name="tests.dashboard.example.TC014_DA_MP" /> -->
+			<!-- <class name="tests.dashboard.example.TC015_DA_MP" /> -->
+		</classes>
+	</test>
+</suite>
