@@ -17,7 +17,6 @@ import utils.helper.Logger;
 
 public class Element implements IElement {
 
-	private Logger logger = Logger.getLogger(Element.class);
 	public String locator;
 	private By byLocator;
 	private String dynamicLocator;
@@ -39,7 +38,7 @@ public class Element implements IElement {
 	}
 
 	protected WebDriver getDriver() {
-		return DriverUtils.getDriver();
+		return DriverUtils.getWebDriver();
 	}
 
 	protected JavascriptExecutor jsExecutor() {
@@ -175,8 +174,7 @@ public class Element implements IElement {
 				}
 			});
 		} catch (Exception e) {
-			logger.error(String.format("waitForElementEnabled: Has error with control '%s': %s",
-					getLocator().toString(), e.getMessage()));
+			e.printStackTrace();
 		}
 
 	}
