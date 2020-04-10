@@ -39,8 +39,8 @@ public class FileDownloader {
 	 * @param downloadPath
 	 *            the downloadPath to set
 	 */
-	public void setDownloadPath(String downloadPath) {
-		this.downloadPath = downloadPath;
-	}
+//	public void setDownloadPath(String downloadPath) {
+//		this.downloadPath = downloadPath;
+//	}
 
 }

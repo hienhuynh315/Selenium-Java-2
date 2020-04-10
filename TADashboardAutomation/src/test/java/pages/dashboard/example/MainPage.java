@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
-import com.logigear.trainning.common.control.Button;
-import com.logigear.trainning.common.control.ComboBox;
-import com.logigear.trainning.common.control.IButton;
-import com.logigear.trainning.common.control.IComboBox;
-import com.logigear.trainning.common.control.ILabel;
-import com.logigear.trainning.common.control.ITextBox;
-import com.logigear.trainning.common.control.Label;
-import com.logigear.trainning.common.control.TextBox;
+import com.logigear.trainning.control.Button;
+import com.logigear.trainning.control.ComboBox;
+import com.logigear.trainning.control.IButton;
+import com.logigear.trainning.control.IComboBox;
+import com.logigear.trainning.control.ILabel;
+import com.logigear.trainning.control.ITextBox;
+import com.logigear.trainning.control.Label;
+import com.logigear.trainning.control.TextBox;
 import com.logigear.trainning.driver.DriverUtils;
 
 import data.dashboard.example.AddNewPagData;

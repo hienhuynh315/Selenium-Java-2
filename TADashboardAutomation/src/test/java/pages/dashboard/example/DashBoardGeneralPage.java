@@ -1,14 +1,16 @@
 package pages.dashboard.example;
 
 
-import com.logigear.trainning.common.control.ILabel;
-import com.logigear.trainning.common.control.Label;
+import com.logigear.trainning.control.ILabel;
+import com.logigear.trainning.control.Label;
 import com.logigear.trainning.driver.DriverUtils;
 
+import io.qameta.allure.Step;
 import utils.common.Constants;
 
 public class DashBoardGeneralPage {
 
+	@Step("navigate to site")
 	public void navigateToDashBoard() {
 		DriverUtils.navigate(Constants.DASHBOARD_URL);
 	}

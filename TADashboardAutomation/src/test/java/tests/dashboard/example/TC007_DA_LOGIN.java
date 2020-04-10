@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.google.inject.Inject;
 
-import data.dashboard.example.ExampleData;
 import pages.dashboard.example.DashBoardGeneralPage;
 import pages.dashboard.example.LoginPage;
 import pages.dashboard.example.MainPage;
@@ -53,8 +52,5 @@ public class TC007_DA_LOGIN extends TestBase {
 
 	@Inject
 	DashBoardGeneralPage dashBoardGeneralPage;
-
-	@Inject
-	ExampleData exampleData;
 
 }

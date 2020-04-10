@@ -10,13 +10,13 @@
 	</appender>
 
 	<!-- control package -->
-	<logger name="com.logigear.control.base.imp">
+	<logger name="com.logigear.trainning.control">
 		<level value="ERROR" />
 		<!-- <appender-ref ref="console" /> -->
 	</logger>
 
 	<!-- driver package -->
-	<logger name="com.logigear.driver">
+	<logger name="com.logigear.trainning.driver">
 		<level value="ERROR" />
 		<!-- <appender-ref ref="console" /> -->
 	</logger>

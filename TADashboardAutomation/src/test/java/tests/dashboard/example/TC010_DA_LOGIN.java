@@ -5,9 +5,8 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.google.inject.Inject;
-import com.logigear.driver.DriverUtils;
+import com.logigear.trainning.driver.DriverUtils;
 
-import data.dashboard.example.ExampleData;
 import pages.dashboard.example.DashBoardGeneralPage;
 import pages.dashboard.example.LoginPage;
 import pages.dashboard.example.MainPage;
@@ -47,8 +46,5 @@ public class TC010_DA_LOGIN extends TestBase {
 
 	@Inject
 	DashBoardGeneralPage dashBoardGeneralPage;
-
-	@Inject
-	ExampleData exampleData;
 
 }

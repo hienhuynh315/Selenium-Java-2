@@ -7,11 +7,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Parameters;
 
+import com.logigear.trainning.driver.DriverCreationException;
 import com.logigear.trainning.driver.DriverProperty;
 import com.logigear.trainning.driver.DriverUtils;
 
 import utils.config.ModuleFactory;
 import utils.helper.BrowserSettingHelper;
+import utils.helper.PropertiesHelper;
 
 @Guice(modules = ModuleFactory.class)
 public class TestBase {
@@ -19,21 +21,36 @@ public class TestBase {
 	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)
 	public void beforeMethod(String browser, Method method) throws Throwable {
-//		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
-		if (browser == null) {
-			DriverUtils.setBrowser("chrome");
-		} else if (browser.equals("firefox")) {
-			DriverUtils.setBrowser(browser);
-
-		} else if (browser.equals("chrome")) {
-			DriverUtils.setBrowser(browser);
-
-		}
+		DriverUtils.setTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.timeout")));
+		DriverUtils.setShortTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.shortTimeout")));
+		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
+		setProperty(property);
+		openBrowser();
 	}
+
+	public void openBrowser() throws DriverCreationException {
+		DriverUtils.getDriver(getProperty());
+		DriverUtils.maximizeBrowser();
+		DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH, Constants.BROWSER_SIZE_HEIGHT);
+	}
+
+//	public void beforeMethod(String browser, Method method) throws Throwable {
+//		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
+//		if (browser == null) {
+//			DriverUtils.setBrowser("chrome");
+//		} else if (browser.equals("firefox")) {
+//			DriverUtils.setBrowser(browser);
+//
+//		} else if (browser.equals("chrome")) {
+//			DriverUtils.setBrowser(browser);
+//
+//		}
+//	}
 
 	@AfterClass(alwaysRun = true)
 	public void afterMethod() {
-		DriverUtils.getDriver().quit();
+//		DriverUtils.getDriver().quit();
+		DriverUtils.quitBrowser();
 	}
 
 	public DriverProperty getProperty() {
@@ -44,14 +61,5 @@ public class TestBase {
 		this.property = property;
 	}
 
-	public String getEnv() {
-		return env;
-	}
-
-	public void setEnv(String env) {
-		this.env = env;
-	}
-
-	private String env;
 	private DriverProperty property;
 }
