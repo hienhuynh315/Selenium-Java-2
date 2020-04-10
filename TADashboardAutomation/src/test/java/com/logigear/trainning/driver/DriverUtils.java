@@ -1,27 +1,59 @@
 package com.logigear.trainning.driver;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.logigear.trainning.driver.DriverManagerFactory;
+
+import io.qameta.allure.Attachment;
 import utils.common.Constants;
 
-public class DriverUtils {
+public class DriverUtils extends DriverManagerFactory {
+	public static void getDriver(DriverProperty property) throws DriverCreationException {
+		logger.debug(String.format("Creating the %s driver", property.getDriverType().name().toString()));
+		createWebDriver(property);
+	}
 
-	public static void setBrowser(String browser) {
-		if (browser.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);
-			driver = new ChromeDriver();
-		} else if (browser.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", Constants.FIREFOX_DRIVER_PATH);
-			driver = new FirefoxDriver();
+	public static void maximizeBrowser() {
+		try {
+			logger.debug("Maximize browser");
+			DriverManagerFactory.getDriver().manage().window().maximize();
+		} catch (Exception e) {
+			logger.error("An error occurred when maximizing browser" + e.getMessage());
 		}
+	}
+
+	public static void setBrowserSize(int width, int height) {
+		try {
+			logger.debug("Resizing browser");
+			Dimension browserSize = new Dimension(width, height);
+			DriverManagerFactory.getDriver().manage().window().setSize(browserSize);
+		} catch (Exception e) {
+			logger.error("An error occurred when resizing browser" + e.getMessage());
+		}
+	}
+
+	public static WebDriver getWebDriver() {
+		return getDriver();
+	}
+
+	public static void quitBrowser() {
+		try {
+			logger.debug("Quit browser");
+			getDriver().close();
+			getDriver().quit();
+		} catch (Exception e) {
+			logger.error("An error occurred when quiting browser" + e.getMessage());
+		}
+
 	}
 
 	public static void setTimeOut(int timeoutSec) {
@@ -40,17 +72,32 @@ public class DriverUtils {
 		return DriverManagerFactory.getShortTimeOut();
 	}
 
-	public static WebDriver getDriver() {
-		return driver;
+	public static String getAlertText() {
+		return getDriver().switchTo().alert().getText();
 	}
 
-	public static WebDriver getWebDriver() {
-		return getDriver();
+	public static void waitForAlertDisplay() {
+		int i = 0;
+		while (i++ < 120) {
+			if (isAlertDisplayed()) {
+				break;
+			}
+			delay(1);
+		}
 	}
 
 	public static void acceptAlert() {
 		getDriver().switchTo().alert().accept();
 		delay(1);// wait for alert close
+	}
+
+	public static boolean isAlertDisplayed() {
+		try {
+			getDriver().switchTo().alert();
+			return true;
+		} catch (NoAlertPresentException Ex) {
+			return false;
+		}
 	}
 
 	public static void delay(int timeInSecond) {
@@ -60,10 +107,6 @@ public class DriverUtils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public static void refreshPage() {
-		driver.navigate().refresh();
 	}
 
 	public static void navigate(String url) {
@@ -93,6 +136,12 @@ public class DriverUtils {
 		return path;
 	}
 
+	@Attachment(value = "{name}", type = "image/png")
+	public static byte[] takeScreenshot(String name) {
+		// Take a screenshot as byte array and return
+		return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+	}
+
 	private static Logger logger = Logger.getLogger(DriverUtils.class);
-	protected static WebDriver driver;
+//	protected static WebDriver drivers;
 }

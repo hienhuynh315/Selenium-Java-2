@@ -1,11 +1,11 @@
 package pages.dashboard.example;
 
-import com.logigear.trainning.common.control.Button;
-import com.logigear.trainning.common.control.ComboBox;
-import com.logigear.trainning.common.control.IButton;
-import com.logigear.trainning.common.control.IComboBox;
-import com.logigear.trainning.common.control.ITextBox;
-import com.logigear.trainning.common.control.TextBox;
+import com.logigear.trainning.control.Button;
+import com.logigear.trainning.control.ComboBox;
+import com.logigear.trainning.control.IButton;
+import com.logigear.trainning.control.IComboBox;
+import com.logigear.trainning.control.ITextBox;
+import com.logigear.trainning.control.TextBox;
 import com.logigear.trainning.driver.DriverUtils;
 
 public class LoginPage extends DashBoardGeneralPage {

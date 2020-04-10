@@ -6,7 +6,7 @@ import java.util.List;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import com.logigear.trainning.common.control.Element;
+import com.logigear.trainning.control.Element;
 
 import io.qameta.allure.Step;
 
@@ -15,8 +15,8 @@ public class Logger {
 	private static List<String> currentLogs = new ArrayList<String>();
 
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(Logger.class);
-	
-	@Step("{0}")
+
+	@Step("{message}")
 	public static void info(String message) {
 		saveLog(message);
 		Reporter.log("<b>INFO: </b>" + message);
@@ -30,6 +30,7 @@ public class Logger {
 		log.info(message);
 	}
 
+	@Step("VERIFY POINT: {message}")
 	public static void verify(String message) {
 		saveLog(message);
 		Reporter.log("<b style=\"color: #44aa44;\">VERIFY POINT: </b>" + message);

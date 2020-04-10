@@ -1,12 +1,6 @@
 package data.dashboard.example;
 
-import data.dashboard.base.DataBase;
-
-public class AddNewPagData extends DataBase {
-
-	public AddNewPagData() {
-		super("");
-	}
+public class AddNewPagData {
 
 	public String getPageName() {
 		return pageName;

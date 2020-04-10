@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>DashboardAutomation</groupId>
-	<artifactId>DashboardAutomation</artifactId>
+	<groupId>TADashboardAutomation</groupId>
+	<artifactId>TADashboardAutomation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>DashboardAutomation</name>
+	<name>TADashboardAutomation</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -16,6 +16,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<testNames>all</testNames>
+		<aspectj.version>1.8.11</aspectj.version>
 	</properties>
 
 	<build>
@@ -37,13 +38,24 @@
 					<suiteXmlFiles>
 						<file>src/test/resources/suites/${TESTNG_XML}.xml</file>
 					</suiteXmlFiles>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
 					<properties>
 						<property>
 							<name>suitethreadpoolsize</name>
 							<value>2</value>
 						</property>
+
 					</properties>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
@@ -102,7 +114,7 @@
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
 			<artifactId>allure-testng</artifactId>
-			<version>2.7.0</version>
+			<version>2.12.0</version>
 		</dependency>
 		<dependency>
 			<groupId>reportng-1.1.4</groupId>
@@ -111,7 +123,16 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/test/resources/libs/reportng-1.1.4.jar</systemPath>
 		</dependency>
-
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-testng-adaptor</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.10.0</version>
+		</dependency>
 		<dependency>
 			<groupId>com.pojosontheweb</groupId>
 			<artifactId>monte-repack</artifactId>
@@ -143,6 +164,11 @@
 			<artifactId>javafaker</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>3.5.0</version>
+		</dependency>
 	</dependencies>
 	<reporting>
 		<excludeDefaults>true</excludeDefaults>
@@ -150,7 +176,7 @@
 			<plugin>
 				<groupId>io.qameta.allure</groupId>
 				<artifactId>allure-maven</artifactId>
-				<version>2.9</version>
+				<version>2.12.0</version>
 			</plugin>
 		</plugins>
 	</reporting>

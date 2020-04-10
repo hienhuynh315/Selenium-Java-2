@@ -4,7 +4,6 @@ import utils.helper.PropertiesHelper;
 
 public class Constants {
 	
-//	public static final String BROWSER_SETTING_FILE = "src/test/java/com/logigear/trainning/test/resource/browsers.setting.properties";
 	public static final String FIREFOX_DRIVER_PATH = "src/test/resources/libs/geckodriver.exe";
 	public static final String CHROME_DRIVER_PATH = "src/test/resources/libs/chromedriver.exe";
 
