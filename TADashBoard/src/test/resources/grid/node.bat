@@ -1,0 +1,1 @@
+java -Dwebdriver.chrome.driver="drivers/chromedriver.exe" -jar selenium-server-standalone-3.8.1.jar -role webdriver -hub http://localhost:4443/grid/register -port 5555

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="2" parallel="tests">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="utils.config.TestListener" />
+	</listeners>
+	<test name="Run IE Local">
+		<parameter name="browser" value="ie.remote" />
+		<parameter name="url" value="1" />
+		<classes>
+			<class name="dashboard.tests.TC001_DA_LOGIN" />
+		</classes>
+	</test>
+	<test name="Run Chrome Local">
+		<parameter name="browser" value="chrome.remote" />
+		<parameter name="url" value="1" />
+		<classes>
+			<class name="dashboard.tests.TC001_DA_LOGIN" />
+		</classes>
+	</test>
+</suite>
