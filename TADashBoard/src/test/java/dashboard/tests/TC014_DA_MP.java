@@ -10,7 +10,7 @@ import com.google.inject.Inject;
 
 import dashboard.common.Constants;
 import dashboard.common.TestBase;
-import dashboard.data.AddNewPagData;
+import dashboard.model.AddNewPagData;
 import dashboard.pages.DashBoardGeneralPage;
 import dashboard.pages.LoginPage;
 import dashboard.pages.MainPage;

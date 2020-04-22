@@ -10,7 +10,7 @@ import com.google.inject.Inject;
 
 import dashboard.common.Constants;
 import dashboard.common.TestBase;
-import dashboard.data.AddNewPagData;
+import dashboard.model.AddNewPagData;
 import dashboard.pages.DashBoardGeneralPage;
 import dashboard.pages.LoginPage;
 import dashboard.pages.MainPage;
@@ -65,7 +65,7 @@ public class TC016_DA_MP extends TestBase {
 	public void cleanUp() {
 
 		Logger.info("Post-condition 1. Logout ");
-		mainPage.selectHeadMenu("test>Logout");
+		mainPage.selectHeadMenu(Constants.USERNAME_ADMIN+">Logout");
 
 		Logger.info("Post-condition 2. Login with Administrator ");
 		loginPage.login(Constants.USERNAME_ADMIN, Constants.PASSWORD_ADMIN);

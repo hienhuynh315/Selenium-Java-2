@@ -6,7 +6,7 @@
 		<listener class-name="utils.config.TestListener" />
 	</listeners>
 	<test name="Run IE Local">
-		<parameter name="browser" value="ie.remote" />
+		<parameter name="browser" value="chrome.remote" />
 		<parameter name="url" value="1" />
 		<classes>
 			<class name="dashboard.tests.TC001_DA_LOGIN" />

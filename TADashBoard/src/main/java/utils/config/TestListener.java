@@ -11,7 +11,6 @@ import org.testng.Reporter;
 import com.drivers.DriverUtils;
 
 import utils.common.Common;
-import utils.helper.Logger;
 
 public class TestListener implements ITestListener {
 
@@ -30,8 +29,6 @@ public class TestListener implements ITestListener {
 	}
 
 	public void onTestStart(ITestResult result) {
-		Logger.info(String.format("TEST CASE: %s.%s", result.getTestClass().getName(), result.getName()));
-		Logger.info(String.format("TEST DESCRIPTION: %s", result.getMethod().getDescription()));
 	}
 
 	public void onTestSuccess(ITestResult result) {

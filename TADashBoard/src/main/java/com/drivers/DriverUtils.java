@@ -85,6 +85,7 @@ public class DriverUtils extends DriverManagerFactory {
 	}
 
 	public static void acceptAlert() {
+		delay(1);// wait for alert displays
 		getDriver().switchTo().alert().accept();
 		delay(1);// wait for alert close
 	}
@@ -96,6 +97,10 @@ public class DriverUtils extends DriverManagerFactory {
 		} catch (NoAlertPresentException Ex) {
 			return false;
 		}
+	}
+
+	public static void waitForPageLoad() {
+		delay(5);
 	}
 
 	public static void delay(int timeInSecond) {

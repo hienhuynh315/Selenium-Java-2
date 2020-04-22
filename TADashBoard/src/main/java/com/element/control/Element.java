@@ -153,6 +153,7 @@ public class Element implements IElement {
 			WebDriverWait wait = new WebDriverWait(getDriver(), timeOutInSeconds);
 			wait.until(ExpectedConditions.presenceOfElementLocated(getLocator()));
 		} catch (Exception e) {
+			throw e;
 		}
 	}
 
