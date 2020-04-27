@@ -25,7 +25,7 @@ public class TC001_DA_LOGIN extends TestBase {
 
 	}
 
-	@Test(description = "Verify that user can login specific repository successfully via Dashboard login page with correct credentials", enabled = true)
+	@Test(description = "Verify that user can login specific repository successfully via Dashboard login page with correct credentials")
 	@Description("Test Description: Verify that user can login specific repository successfully ")
 	public void tc001_DA_LOGIN() {
 

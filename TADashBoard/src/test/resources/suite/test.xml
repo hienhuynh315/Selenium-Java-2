@@ -7,7 +7,7 @@
 	</listeners>
 	<test name="Run Chrome Local">
 		<parameter name="browser" value="chrome.local" />
-		<parameter name="url" value="2" />
+		<parameter name="url" value="1" />
 		<classes>
 			<class name="dashboard.tests.TC017_DA_MP" />
 		</classes>

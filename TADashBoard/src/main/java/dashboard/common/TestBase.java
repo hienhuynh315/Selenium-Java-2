@@ -19,21 +19,22 @@ import utils.helper.PropertiesHelper;
 @Guice(modules = ModuleFactory.class)
 public class TestBase {
 
-	@Parameters({ "browser", "url" })
+	@Parameters({ "browser" })
 	@BeforeMethod(alwaysRun = true)
-	public void beforeMethod(String browser, Method method, @Optional String url) throws Throwable {
-		if (url != null) {
-			DriverUtils.setUrl(PropertiesHelper.getPropValue("profile.dashboard.url" + url));
-		}
+	public void beforeMethod(String browser, Method method) throws Throwable {
 		DriverUtils.setTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.timeout")));
 		DriverUtils.setShortTimeOut(Integer.parseInt(PropertiesHelper.getPropValue("driver.shortTimeout")));
 		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
 		setProperty(property);
+//			setURL(PropertiesHelper.getPropValue("profile.dashboard.url" + url));
+			setURL(System.getProperty("profile"));
+//			setURL(url);
 		openBrowser();
 	}
 
 	public void openBrowser() throws DriverCreationException {
 		DriverUtils.getDriver(getProperty());
+		setURL(getURL());
 		DriverUtils.maximizeBrowser();
 		DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH, Constants.BROWSER_SIZE_HEIGHT);
 	}
@@ -64,6 +65,15 @@ public class TestBase {
 	public void setProperty(DriverProperty property) {
 		this.property = property;
 	}
+	public String getURL() {
+		return url;
+	}
+
+	public void setURL(String env) {
+		this.url = url;
+	}
+
+	private String url;
 
 	private DriverProperty property;
 }

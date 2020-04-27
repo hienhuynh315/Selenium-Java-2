@@ -9,18 +9,9 @@ public class DriverManagerFactory {
 
 	private static int timeOut;
 	private static int shortTimeOut;
-	private static String url;
 
 	protected static WebDriver getDriver() {
 		return DRIVERS.get().getWebDriver();
-	}
-
-	protected static boolean isWaitForAjax() {
-		return DRIVERS.get().isWaitForAjax;
-	}
-
-	protected static void setWaitForAjax(boolean isWait) {
-		DRIVERS.get().isWaitForAjax = isWait;
 	}
 
 	protected static void setWebDriver(DriverManager driverManager) {
@@ -28,7 +19,6 @@ public class DriverManagerFactory {
 	}
 
 	protected static void createWebDriver(DriverProperty property) throws DriverCreationException {
-
 		Object obj = ReflectionUtils.initWebDriver(property);
 		if (obj == null) {
 			throw new DriverCreationException(String.format("Cannot create the %s driver", property.getDriverType()));
@@ -65,14 +55,22 @@ public class DriverManagerFactory {
 		DriverManagerFactory.shortTimeOut = timeOut;
 	}
 
-	public static String getUrl() {
-		return url;
+	protected static String getURL() {
+		return DRIVERS.get().url;
 	}
 
-	public static void setUrl(String url) {
-		DriverManagerFactory.url = url;
+	protected static void setURL(String url) {
+		if (url != null) {
+			DRIVERS.get().url = url;
+		}
 	}
-	
-	
+
+//	public static String getUrl() {
+//		return url;
+//	}
+//
+//	public static void setUrl(String url) {
+//		DriverManagerFactory.url = url;
+//	}
 
 }

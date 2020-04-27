@@ -4,10 +4,13 @@ import com.drivers.DriverUtils;
 import com.element.control.ILabel;
 import com.element.control.Label;
 
+import utils.common.Constants;
+import utils.helper.PropertiesHelper;
+
 public class DashBoardGeneralPage {
 
 	public void navigateToDashBoard() {
-		DriverUtils.navigate(DriverUtils.getUrl());
+		DriverUtils.navigate(Constants.DASHBOARD_URL);
 	}
 
 	public void selectHeadMenu(String path) {

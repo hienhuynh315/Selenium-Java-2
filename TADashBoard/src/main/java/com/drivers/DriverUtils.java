@@ -15,6 +15,7 @@ import com.drivers.DriverManagerFactory;
 import io.qameta.allure.Attachment;
 
 public class DriverUtils extends DriverManagerFactory {
+
 	public static void getDriver(DriverProperty property) throws DriverCreationException {
 		logger.debug(String.format("Creating the %s driver", property.getDriverType().name().toString()));
 		createWebDriver(property);
@@ -46,8 +47,8 @@ public class DriverUtils extends DriverManagerFactory {
 	public static void quitBrowser() {
 		try {
 			logger.debug("Quit browser");
-			getDriver().close();
-			getDriver().quit();
+			DriverManagerFactory.getDriver().close();
+			DriverManagerFactory.getDriver().quit();
 		} catch (Exception e) {
 			logger.error("An error occurred when quiting browser" + e.getMessage());
 		}
@@ -112,12 +113,14 @@ public class DriverUtils extends DriverManagerFactory {
 		}
 	}
 
-	public static void setUrl(String url) {
-		DriverManagerFactory.setUrl(url);
+	public static String getURL() {
+		return DRIVERS.get().url;
 	}
 
-	public static String getUrl() {
-		return DriverManagerFactory.getUrl();
+	public static void setURL(String url) {
+		if (url != null) {
+			DRIVERS.get().url = url;
+		}
 	}
 
 	public static void navigate(String url) {

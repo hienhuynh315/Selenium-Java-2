@@ -15,8 +15,7 @@ public class PropertiesHelper {
 		InputStream inputStream = null;
 		try {
 			System.out.println("Loading properties : " + propFileName);
-			inputStream = PropertiesHelper.class.getClassLoader()
-					.getResourceAsStream(propFileName);
+			inputStream = PropertiesHelper.class.getClassLoader().getResourceAsStream(propFileName);
 
 			if (inputStream != null) {
 				Properties prop = new Properties();
@@ -42,16 +41,14 @@ public class PropertiesHelper {
 	private static void initProps() {
 		if (config == null) {
 			config = initPropsForName("conf.properties");
+			
+			String profileFile = System.getProperty("profile");
 
-			// Profile is passed by arguments via Jenkins
-//			String profileFile = System.getProperty("profile");
-
-//			if (profileFile != null) {
-//				profile = initPropsForName(
-//						"profiles/" + profileFile + ".properties");
-//			} else {
-//				profile = initPropsForName("profiles/qa.properties");
-//			}
+			if (profileFile != null) {
+				profile = initPropsForName("profiles/" + "link" + profileFile + ".properties");
+			} else {
+				profile = initPropsForName("profiles/link.properties");
+			}
 
 			String propsFile = System.getProperty("properties");
 			if (props != null) {

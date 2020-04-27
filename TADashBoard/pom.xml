@@ -33,7 +33,7 @@
 				<version>2.22.0</version>
 				<configuration>
 					<suiteXmlFiles>
-						<file>src/test/resources/suites/${TESTNG_XML}.xml</file>
+						<file>src/test/resources/suite/parallelBrowserClassTemplate.xml</file>
 					</suiteXmlFiles>
 					<argLine>
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

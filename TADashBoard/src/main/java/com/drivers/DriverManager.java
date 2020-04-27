@@ -11,10 +11,10 @@ import utils.helper.JsonHelper;
 public abstract class DriverManager {
 
 	protected WebDriver webDriver;
+	public String url = "";
 
 	private String browserName;
 
-	public boolean isWaitForAjax = true;
 
 	private String capabilities;
 	private String arguments;

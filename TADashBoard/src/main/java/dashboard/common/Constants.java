@@ -24,6 +24,7 @@ public class Constants {
 
 
 	// Dashboard Constants
+	public static final String DASHBOARD_URL  = PropertiesHelper.getPropValue("profile.dashboard.url");
 	public static final String USERNAME_ADMIN = PropertiesHelper.getPropValue("profile.username.admin");
 	public static final String REPOSITORY_SAMPLE = PropertiesHelper.getPropValue("profile.repo.sample");
 	public static final String REPOSITORY_LV2 = PropertiesHelper.getPropValue("profile.repo.sampleLV2");
