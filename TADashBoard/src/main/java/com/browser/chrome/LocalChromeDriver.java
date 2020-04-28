@@ -2,6 +2,7 @@ package com.browser.chrome;
 
 import java.util.HashMap;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -21,6 +22,8 @@ public class LocalChromeDriver extends DriverManager {
 		}
 
 		ChromeOptions ops = new ChromeOptions();
+		// To solve error:  Timed out receiving message from renderer for latest version on chrome
+		ops.setPageLoadStrategy(PageLoadStrategy.NONE); 
 		ops.merge(getCapabilities());
 		ops.addArguments(getArguments());
 		String downloadFilepath = System.getProperty("user.dir") + "\\downloads";

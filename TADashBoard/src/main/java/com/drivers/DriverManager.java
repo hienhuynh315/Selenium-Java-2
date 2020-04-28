@@ -11,7 +11,7 @@ import utils.helper.JsonHelper;
 public abstract class DriverManager {
 
 	protected WebDriver webDriver;
-	public String url = "";
+	public String url = "1";
 
 	private String browserName;
 

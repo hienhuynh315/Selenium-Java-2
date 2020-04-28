@@ -13,7 +13,7 @@ import com.drivers.DriverUtils;
 import utils.common.Common;
 
 public class TestListener implements ITestListener {
-	String url = null;
+	String url = "";
 
 	public void onTestFailure(ITestResult result) {
 		// Take screenshot attach to Allure
@@ -49,14 +49,8 @@ public class TestListener implements ITestListener {
 	public void onStart(ITestContext context) {
 		url = context.getCurrentXmlTest().getParameter("url");
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
-		String profileFile = System.getProperty("profile");
-		if (profileFile != null) {
-			url = profileFile;
-		} else {
-			if (url == null)
-				url = "link";
-			System.setProperty("profile", url);
-		}
+		// set profile properties when run difference link
+		System.setProperty("profile", "");
 	}
 
 	public void onFinish(ITestContext context) {

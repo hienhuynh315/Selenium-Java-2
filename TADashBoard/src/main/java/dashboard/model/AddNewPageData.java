@@ -1,6 +1,6 @@
 package dashboard.model;
 
-public class AddNewPagData {
+public class AddNewPageData {
 
 	public String getPageName() {
 		return pageName;

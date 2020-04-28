@@ -9,7 +9,7 @@ import com.google.inject.Inject;
 
 import dashboard.common.Constants;
 import dashboard.common.TestBase;
-import dashboard.model.AddNewPagData;
+import dashboard.model.AddNewPageData;
 import dashboard.pages.DashBoardGeneralPage;
 import dashboard.pages.LoginPage;
 import dashboard.pages.MainPage;
@@ -70,6 +70,6 @@ public class TC012_DA_MP extends TestBase {
 	DashBoardGeneralPage dashBoardGeneralPage;
 
 	@Inject
-	AddNewPagData addNewPagData;
+	AddNewPageData addNewPagData;
 
 }

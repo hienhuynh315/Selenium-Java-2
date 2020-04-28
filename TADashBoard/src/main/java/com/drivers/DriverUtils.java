@@ -47,8 +47,8 @@ public class DriverUtils extends DriverManagerFactory {
 	public static void quitBrowser() {
 		try {
 			logger.debug("Quit browser");
-			DriverManagerFactory.getDriver().close();
-			DriverManagerFactory.getDriver().quit();
+			getDriver().close();
+			getDriver().quit();
 		} catch (Exception e) {
 			logger.error("An error occurred when quiting browser" + e.getMessage());
 		}

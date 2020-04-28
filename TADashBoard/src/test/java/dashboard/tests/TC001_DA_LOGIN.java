@@ -13,7 +13,6 @@ import dashboard.pages.LoginPage;
 import dashboard.pages.MainPage;
 import dashboard.pages.OverviewPage;
 import io.qameta.allure.Description;
-import utils.helper.AllureLogger;
 import utils.helper.Logger;
 
 public class TC001_DA_LOGIN extends TestBase {
@@ -26,7 +25,7 @@ public class TC001_DA_LOGIN extends TestBase {
 	}
 
 	@Test(description = "Verify that user can login specific repository successfully via Dashboard login page with correct credentials")
-	@Description("Test Description: Verify that user can login specific repository successfully ")
+	@Description("Test Description: Verify that user can login successfully via Dashboard login page")
 	public void tc001_DA_LOGIN() {
 
 		Logger.info("Step 1. Login to DarshBoard");

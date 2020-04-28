@@ -41,11 +41,10 @@ public class PropertiesHelper {
 	private static void initProps() {
 		if (config == null) {
 			config = initPropsForName("conf.properties");
-			
 			String profileFile = System.getProperty("profile");
-
 			if (profileFile != null) {
-				profile = initPropsForName("profiles/" + "link" + profileFile + ".properties");
+				profile = initPropsForName(
+						"profiles/link.properties");
 			} else {
 				profile = initPropsForName("profiles/link.properties");
 			}

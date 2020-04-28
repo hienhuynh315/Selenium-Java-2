@@ -10,7 +10,7 @@ import utils.helper.PropertiesHelper;
 public class DashBoardGeneralPage {
 
 	public void navigateToDashBoard() {
-		DriverUtils.navigate(Constants.DASHBOARD_URL);
+		DriverUtils.navigate(PropertiesHelper.getPropValue("profile.dashboard.url" + DriverUtils.getURL()));
 	}
 
 	public void selectHeadMenu(String path) {

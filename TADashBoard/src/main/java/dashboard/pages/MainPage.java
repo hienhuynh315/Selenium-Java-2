@@ -15,7 +15,7 @@ import com.element.control.Label;
 import com.element.control.TextBox;
 
 import dashboard.common.Constants;
-import dashboard.model.AddNewPagData;
+import dashboard.model.AddNewPageData;
 import utils.helper.Logger;
 
 public class MainPage extends DashBoardGeneralPage {
@@ -47,7 +47,7 @@ public class MainPage extends DashBoardGeneralPage {
 		return listOfElement.size();
 	}
 
-	public void submitNewPageForm(AddNewPagData data) {
+	public void submitNewPageForm(AddNewPageData data) {
 		String pageName = data.getPageName();
 		String parrentPage = data.getParrentPage();
 		newPageLabel.waitForDisplay();
