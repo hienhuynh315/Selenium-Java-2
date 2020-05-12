@@ -11,6 +11,7 @@ import com.element.control.TextBox;
 public class LoginPage extends DashBoardGeneralPage {
 
 	public void login(String userName, String password) {
+		userNameTextBox.waitForDisplay();
 		userNameTextBox.enter(userName);
 		passwordTextBox.enter(password);
 		loginButton.click();
@@ -25,7 +26,7 @@ public class LoginPage extends DashBoardGeneralPage {
 		DriverUtils.delay(5);
 	}
 
-	private ITextBox userNameTextBox = new TextBox("id=username");
+	private ITextBox userNameTextBox = new TextBox("//input[@id='username']");
 	private ITextBox passwordTextBox = new TextBox("id=password");
 	private IComboBox repoComboBox = new ComboBox("id=repository");
 	private IButton loginButton = new Button("//div[@class='btn-login']");

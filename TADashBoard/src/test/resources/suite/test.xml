@@ -7,9 +7,16 @@
 	</listeners>
 	<test name="Run Chrome Local">
 		<parameter name="browser" value="chrome.local" />
-		<parameter name="url" value="1" />
+		<parameter name="url" value="2" />
 		<classes>
 			<class name="dashboard.tests.TC017_DA_MP" />
 		</classes>
 	</test>
+<!-- 	<test name="Run Chrome Local 2"> -->
+<!-- 		<parameter name="browser" value="chrome.local" /> -->
+<!-- 		<parameter name="url" value="2" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="dashboard.tests.TC017_DA_MP" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
 </suite>

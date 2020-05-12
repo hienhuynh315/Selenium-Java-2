@@ -32,7 +32,7 @@ public class TC018_DA_MP extends TestBase {
 	}
 
 	@Test(description = "Verify that non Public pages can only be accessed and visible to their creators with condition that all parent pages above it are Public", enabled = true)
-	public void tc015_DA_MP() {
+	public void tc018_DA_MP() {
 
 		Logger.info("1. Login to DarshBoard");
 		loginPage.login(Constants.USERNAME_ADMIN, Constants.PASSWORD_ADMIN);

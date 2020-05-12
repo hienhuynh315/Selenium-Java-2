@@ -7,7 +7,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import utils.helper.JsonHelper;
 
-
 public abstract class DriverManager {
 
 	protected WebDriver webDriver;
@@ -15,13 +14,20 @@ public abstract class DriverManager {
 
 	private String browserName;
 
-
 	private String capabilities;
 	private String arguments;
 	private String version;
 
+//	public WebDriver getWebDriver() {
+//		return this.webDriver;
+//	}
+
 	public WebDriver getWebDriver() {
 		return webDriver;
+	}
+
+	public void setWebDriver(WebDriver webDriver) {
+		this.webDriver = webDriver;
 	}
 
 	protected abstract void createWebDriver();
