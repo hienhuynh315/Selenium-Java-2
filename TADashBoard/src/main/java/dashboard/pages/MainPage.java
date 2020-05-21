@@ -21,7 +21,7 @@ import utils.helper.Logger;
 public class MainPage extends DashBoardGeneralPage {
 
 	public boolean doesDashBoardMainPageDisplay() {
-		return headerMenu.isDisplayed();
+		return headerMenu.isDisplayed(Constants.SHORT_TIME_OUT_IN_SECOND);
 	}
 
 	public void selectSettingMenu(String item) {

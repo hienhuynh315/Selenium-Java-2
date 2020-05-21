@@ -1,1 +1,1 @@
-mvn clean test -DsuiteXmlFile=./src/test/resources/suite/parallelBrowserClassTemplate.xml
+mvn test -DsuiteXmlFile=./src/test/resources/suite/parallelBrowserClassTemplate.xml

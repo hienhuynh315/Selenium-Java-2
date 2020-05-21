@@ -6,7 +6,7 @@
 		<listener class-name="utils.config.TestListener" />
 	</listeners>
 	<test name="Run Chrome Local link 1">
-	<parameter name="url" value="1" />
+	<parameter name="url" value="3" />
 		<parameter name="browser" value="chrome.local" />
 		<classes>
 			<class name="dashboard.tests.TC001_DA_LOGIN" />
@@ -14,7 +14,7 @@
 	</test>
 	<test name="Run Chrome Local link 3">
 		<parameter name="browser" value="chrome.local" />
-		<parameter name="url" value="" />
+		<parameter name="url" value="3" />
 		<classes>
 			<class name="dashboard.tests.TC001_DA_LOGIN" />
 		</classes>

@@ -17,7 +17,7 @@ public class Logger {
 	private static List<String> currentLogs = new ArrayList<String>();
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(Logger.class);
 
-	@Step("{message}")
+//	@Step("{message}")
 	public static void info(String message) {
 		saveLog(message);
 		Reporter.log("<b>INFO: </b>" + message);

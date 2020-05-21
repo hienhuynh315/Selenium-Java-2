@@ -37,22 +37,8 @@ public class TestBase {
 		DriverUtils.setBrowserSize(Constants.BROWSER_SIZE_WIDTH, Constants.BROWSER_SIZE_HEIGHT);
 	}
 
-//	public void beforeMethod(String browser, Method method) throws Throwable {
-//		DriverProperty property = BrowserSettingHelper.getDriverProperty(Constants.BROWSER_SETTING_FILE, browser);
-//		if (browser == null) {
-//			DriverUtils.setBrowser("chrome");
-//		} else if (browser.equals("firefox")) {
-//			DriverUtils.setBrowser(browser);
-//
-//		} else if (browser.equals("chrome")) {
-//			DriverUtils.setBrowser(browser);
-//
-//		}
-//	}
-
 	@AfterClass(alwaysRun = true)
 	public void afterMethod() {
-//		DriverUtils.getDriver().quit();
 		DriverUtils.quitBrowser();
 	}
 
